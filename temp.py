@@ -15,7 +15,7 @@ while i in range (1,21):
     value = round(random.uniform(27.16, 29.87), 2)
     payload = json.dumps({
     "action": "addreading",
-    "name": "temperature",
+    "name": "Temperature",
     "ownerid": "1",
     "value": str(value),
     "time": ts
