@@ -2,7 +2,7 @@
 
 
 
-COCKROACHSTR = "dbname='amber-corgi-9722.hackabull2023' user='hackers' password='DBItvfI18416-dH9gJpJMg' host='amber-corgi-9722.7tt.cockroachlabs.cloud' port='26257'"
+COCKROACHSTR = "dbname='amber-corgi-9722.hackabull2023' user='hackers' password='REDACTED' host='amber-corgi-9722.7tt.cockroachlabs.cloud' port='26257'"
 
 
 
