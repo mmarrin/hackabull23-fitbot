@@ -9,7 +9,7 @@ url = "https://us-central1-aiot-fit-xlab.cloudfunctions.net/fitbot"
 
 i = 1
 
-while i in range (1,6):
+while i in range (1,21):
 
     ts = str(int(time.time()))
     value = round(random.uniform(27.16, 29.87), 2)
