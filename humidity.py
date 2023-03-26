@@ -6,7 +6,7 @@ import random
 url = "https://us-central1-aiot-fit-xlab.cloudfunctions.net/fitbot"
 i = 1
 
-while i in range(1, 6):
+while i in range(1, 21):
     ts = str(int(time.time()))
     value = round(random.uniform(51.68, 58.75), 2)
     payload = json.dumps({
