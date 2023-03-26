@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>API Dashboard</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <h1>API Dashboard</h1>
+  <canvas id="chart1"></canvas>
+  <canvas id="chart2"></canvas>
+  <canvas id="chart3"></canvas>
+
+  <script>
+    // Make an API request to get the data
+    fetch('https://example.com/data.json')
+      .then(response => response.json())
+      .then(data => {
+        // Process the data and create the charts
+        const chart1Data = data.chart1.map(item => item.value);
+        const chart2Labels = data.chart2.map(item => item.label);
+        const chart2Data = data.chart2.map(item => item.value);
+        const chart3Data = data.chart3.map(item => item.value);
+
+        new Chart(document.getElementById('chart1'), {
+          type: 'line',
+          data: {
+            labels: [...Array(chart1Data.length).keys()],
+            datasets: [{
+              label: 'Chart 1',
+              data: chart1Data,
+              backgroundColor: 'rgba(255, 99, 132, 0.2)',
+              borderColor: 'rgba(255, 99, 132, 1)',
+              borderWidth: 1
+            }]
+          },
+          options: {
+            scales: {
+              yAxes: [{
+                ticks: {
+                  beginAtZero: true
+                }
+              }]
+            }
+          }
+        });
+
+        new Chart(document.getElementById('chart2'), {
+          type: 'pie',
+          data: {
+            labels: chart2Labels,
+            datasets: [{
+              label: 'Chart 2',
+              data: chart2Data,
+              backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)'
+              ],
+              borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
+              ],
+              borderWidth: 1
+            }]
+          }
+        });
+
+        new Chart(document.getElementById('chart3'), {
+          type: 'bar',
+          data: {
+            labels: [...Array(chart3Data.length).keys()],
+            datasets: [{
+              label: 'Chart 3',
+              data: chart3Data,
+              backgroundColor: 'rgba(54, 162, 235, 0.2)',
+              borderColor: 'rgba(54, 162, 235, 1)',
+              borderWidth: 1
+            }]
+          },
+          options: {
+            scales: {
+              yAxes: [{
+                ticks: {
+                  beginAtZero: true
+                }
+              }]
+            }
+          }
+        });
+      })
+      .catch(error => console.error(error));
+  </script>
+</body>
+</html>
